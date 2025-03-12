@@ -1,5 +1,7 @@
 package arpit.spring_project.dependency_injection;
 
+import java.util.ArrayList;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,7 +28,17 @@ public class AppConfiguration {
   @Bean
   PopulationCount getPopulationCount() {
     // return new PopulationCount(getPerson());
-    return new PopulationCount(getPerson());
+    return new PopulationCount(getPerson(), getList());
+  }
+
+  @Bean
+  ArrayList<String> getList() {
+    ArrayList<String> list = new ArrayList<>();
+    list.add("Sumit");
+    list.add("Arpit");
+    list.add("Vishal");
+    list.add("Raj");
+    return list;
   }
 
 }
